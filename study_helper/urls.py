@@ -9,5 +9,6 @@ urlpatterns = [
     path('', views.index),
     path('alumnos/', include('alumno.urls')),
     path('profesor/', include('profesor.urls')),
+    path('materia/', include('materia.urls'))
 ]
 
