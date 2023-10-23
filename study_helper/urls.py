@@ -8,6 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('alumnos/', include('alumno.urls')),
-    path('profesor/', include('profesor.urls'))
+    path('profesor/', include('profesor.urls')),
 ]
 

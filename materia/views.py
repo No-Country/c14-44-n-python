@@ -5,3 +5,6 @@ from django.views.generic.edit import CreateView
 
 def hola(request):
     return HttpResponse("Materias!!")
+
+def hola(request):
+    return HttpResponse("Materias!!")
