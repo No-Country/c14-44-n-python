@@ -8,3 +8,5 @@ class AulaVirtual(models.Model):
     #id_materia = models.ForeignKey("materia.Materia", on_delete=models.CASCADE)
     fecha = models.DateField()
     
+    
+    
