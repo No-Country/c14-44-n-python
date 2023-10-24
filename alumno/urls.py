@@ -1,10 +1,12 @@
 from django.urls import path
-from . import views
+from .views import AlumnoRegistrationView, hola, success
 
 
 app_name = 'alumnos'
 
 urlpatterns = [
-    path('hola/', views.hola, name='hola')
+    path('hola/', hola, name='hola'),
+    path('signup/', AlumnoRegistrationView.as_view(), name='signup'),
+    path('success/', success, name='success'),
     
 ]
