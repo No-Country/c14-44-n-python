@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'profesor',
     'alumno',
     'aula_virtual',
-    'materia'
+    'materia',
 ]
 
 MIDDLEWARE = [
