@@ -17,11 +17,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='alumno',
             name='code',
-            field=models.IntegerField(default='', max_length=3, verbose_name='código'),
+            field=models.IntegerField(default=0, max_length=3, verbose_name='código'),
         ),
         migrations.AlterField(
             model_name='alumno',
             name='phone_number',
-            field=models.IntegerField(default='', max_length=15, verbose_name='Número de Teléfono'),
+            field=models.IntegerField(default=0, max_length=15, verbose_name='Número de Teléfono'),
         ),
     ]
