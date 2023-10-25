@@ -9,7 +9,7 @@ class Alumno(User):
         MaxValueValidator(999999999999999),
         MinValueValidator(1000000000)
     ])
-    phone_code = models.IntegerField("Número de Teléfono", default=10, validators = [
+    phone_code = models.IntegerField("Código de Teléfono", default=10, validators = [
         MaxValueValidator(999),
         MinValueValidator(10)
     ])
