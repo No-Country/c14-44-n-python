@@ -19,3 +19,4 @@ class AlumnoRegistrationView(CreateView):
     form_class = AlumnoRegistrationForm
     template_name = 'signup.html'  # Crea un template de registro
     success_url = reverse_lazy('alumnos:success')
+
