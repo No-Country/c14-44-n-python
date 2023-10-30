@@ -1045,37 +1045,37 @@ margin: 40px 0px 16px 0px;
 #marcos{
   width: 100%;
   height: auto;
-  background-image: url(/assets/img/marcos.jpg);
+  background-image: url(assets/img/marcos.jpg);
   background-size: cover;
   background-position:initial;
   filter: grayscale(1);
 }
 #laura{
-  background-image: url(/assets/img/laura.jpg);
+  background-image: url(assets/img/laura.jpg);
   background-size: cover;
   background-position: initial;
   filter: grayscale(1);
 }
 #sofia{
-  background-image: url(/assets/img/sofia.jpg);
+  background-image: url(assets/img/sofia.jpg);
   background-size: cover;
   background-position: center;
   filter: grayscale(1);
 }
 #diego{
-  background-image: url(/assets/img/diego.png);
+  background-image: url(assets/img/diego.png);
   background-size: cover;
   background-position: center;
   filter: grayscale(1);
 }
 #rosario{
-  background-image: url(/assets/img/rosario.png);
+  background-image: url(assets/img/rosario.png);
   background-size: cover;
   background-position: center;
   filter: grayscale(1);
 }
 #lautaro{
-  background-image: url(/assets/img/lautaro.png);
+  background-image: url(assets/img/lautaro.png);
   background-size: cover;
   background-position: center;
   filter: grayscale(1);

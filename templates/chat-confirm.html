@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container" id="chat">
+        <h1>Aulas Virtuales</h1>
+        <form method="post">{% csrf_token %}
+            ¿Estás seguro que deseas borrar el curso "{{ object }}"?
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+    
+{% endblock %}

@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def Materias(request):
+    return render(request, "courses.html")

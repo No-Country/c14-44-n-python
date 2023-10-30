@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'alumno',
     'aula_virtual',
     'materia',
+    'home',
 ]
 
 MIDDLEWARE = [
