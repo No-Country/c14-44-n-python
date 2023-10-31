@@ -16,6 +16,10 @@ def Chat(request):
     
     return render(request, "chat.html", {'lista':lista})
 
+def ChatInternoAula(request):
+    
+    return render(request, "chat_interno_aula.html")
+
 
     
    

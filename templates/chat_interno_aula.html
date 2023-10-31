@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container" id="chat">
+      <div class="flecha"><a href="javascript:history.back();"><i class="bi bi-chevron-left"></i></a></div>
+      <div class="chat_foto">
+          <img src="assets/img/marcos_face.jpg" alt="">
+          <h5>Marcos</h5>
+      </div>
+
+      <div class="amarillo">
+        <h6>11:52</h6>
+        ¡Hola marcos! Tengo que preparar mi parcial de física y necesito ayuda.
+      </div>
+
+      <div class="verde">
+        <h6>11:54</h6>
+        Hola, con gusto te ayudo!       </div>
+
+      <div class="verde">
+        <h6>11:55</h6>
+        Enviame los temas que tengas que preparar y vemos cuantas clasesn nos llevará      </div>
+
+      <div style="text-decoration: underline;" class="amarillo" >
+        <h6>11:57</h6>
+        Lista de temas parcial.pdf   
+        <i class="bi bi-filetype-pdf"></i> </div>
+
+      <div class="clear"></div>
+
+      <div class="formulario">
+        <form action="">
+          <input class="form-control" type="text" value="Escribe tu mensaje aquí" aria-label="Escribe tu mensaje aquí" readonly>
+          <button style="width: auto;" type="submit" value="Enviar" class="btn get-started-btn"> <i class="bi bi-send"></i></button>
+        
+        </form>
+      </div>
+    </div>
+
+    
+{% endblock %}

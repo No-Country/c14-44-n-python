@@ -14,8 +14,64 @@
     <div class="container">
       <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" style="margin: auto;width: initial;">
         <div class="teacher-item">
-          <img src="{% static 'assets/img/course1.jpg' %}" class="img-fluid" alt="...">
+          <!--<img src="{% static 'assets/img/course1.jpg' %}" class="img-fluid" alt="...">-->
             <div class="teacher-content card-content">
+
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                  <!--<{% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-dismissible alert-success">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong class="text-dark">{{ message }}</strong>
+                  </div>
+                  {% endfor %}
+                  {% endif %}-->
+                  <h2>Gestión de Curso</h2>
+                  <div class="" >
+                    <div class="card-body">
+                      <form action="/registrarCurso/" method="POST">{% csrf_token %}
+                        <div class="form-group">
+                          <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                              maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                          <textarea  id="txtDescripcion" name="txtDescripcion" class="form-control" placeholder="Descripcion" required></textarea>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                    <h1>Listado de Cursos</h1>
+                    <div class="table-responsive py-2">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Nombre</th>
+                              <th>Descripción</th>
+                              <th colspan="2">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for c in cursos %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.descripcion}}</td>
+                            <td><a href="edicionCurso/{{c.codigo}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarCurso/{{c.codigo}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
               <!-- verde claro -->
               <div class="bg_claro">
                   <h3>Cursos</h3>
@@ -32,7 +88,7 @@
                 <ul>
                 <li> Cómo identificar la información importante.</li> 
                 <li>  Cómo organizar la información de forma lógica.</li>
-                 <li> Cómo escribir un resumen de forma efectiva.</li>
+                <li> Cómo escribir un resumen de forma efectiva.</li>
                 </ul>
                 
                 <div style="padding:0 50px; margin: 40px auto;">
