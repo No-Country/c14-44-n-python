@@ -20,6 +20,7 @@ urlpatterns = [
     path('contact.html', Contacto, name="Contacto"),
     path('registrarCurso/', registrarCurso, name="registrarCurso"),
     path('chat_interno_aula.html/', ChatInternoAula, name="Chat_interno_aula"),
+    path('alumno/', include(('alumno.urls', 'alumno'), namespace='alumno')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
