@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2 style="color:#2C5445;font-weight:bold; font-size: 40px; margin: 40px auto;">Adquiere métodos efectivos de aprendizaje</h2>        
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+  <section id="popular-courses" class="cursos mb-5" data-aos="fade-up">
+    <div class="container">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" style="margin: auto;width: initial;">
+        <div class="teacher-item">
+          <!--<img src="{% static 'assets/img/course1.jpg' %}" class="img-fluid" alt="...">-->
+            <div class="teacher-content card-content">
+
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                  <!--<{% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-dismissible alert-success">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong class="text-dark">{{ message }}</strong>
+                  </div>
+                  {% endfor %}
+                  {% endif %}-->
+                  <h2>Gestión de Curso</h2>
+                  <div class="" >
+                    <div class="card-body">
+                      <form action="/registrarCurso/" method="POST">{% csrf_token %}
+                        <div class="form-group">
+                          <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                              maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                          <textarea  id="txtDescripcion" name="txtDescripcion" class="form-control" placeholder="Descripcion" required></textarea>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                    <h1>Listado de Cursos</h1>
+                    <div class="table-responsive py-2">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Nombre</th>
+                              <th>Descripción</th>
+                              <th colspan="2">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for c in cursos %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.descripcion}}</td>
+                            <td><a href="edicionCurso/{{c.codigo}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarCurso/{{c.codigo}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+              <!-- verde claro -->
+              <div class="bg_claro">
+                  <h3>Cursos</h3>
+                  <p>Encuentra a un profesor para cualquier materia, nivel o objetivo. Nuestra plataforma te permite conectarte con los mejores profesores, que te ayudarán a alcanzar tus metas educativas.</p>
+                  <div class="trainer d-flex justify-content-between align-items-center">              
+                    <button type="button" class="btn btn-success">Ver más</button>
+                  </div>
+              </div>
+
+              <!-- verde medio -->
+              <div class="bg_medio">
+                <h3 style="margin: 40px auto;" >Buenos resumenes</h3>
+                <p>Te enseña a a resumir información de forma clara y concisa. El curso cubre los siguientes temas:
+                <ul>
+                <li> Cómo identificar la información importante.</li> 
+                <li>  Cómo organizar la información de forma lógica.</li>
+                <li> Cómo escribir un resumen de forma efectiva.</li>
+                </ul>
+                
+                <div style="padding:0 50px; margin: 40px auto;">
+                  <div class="col-md-2" style="float:left;"><h4><strong>50%</strong><br>completado</h4></div>
+                  <div class="progress col-md-10">
+                    <div class="progress-bar-animated bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div style="clear:both;"></div>
+                </div>
+                
+                <div style="margin: 40px auto;" class="trainer d-flex justify-content-between align-items-center">                
+                  <button style="margin:auto;" type="button" class="btn btn-success">Ver más</button>
+                </div>
+              </div>
+
+              
+              <!-- verde oscuro -->
+              <div   class="bg_oscuro">
+                  <h3 style="margin: 40px auto;"  >Comprensión lectora</h3>
+                  <p>Te ofrece una variedad de recursos para ayudar a mejorar tu comprensión de textos. Incluye:</p>
+<ul>
+  <li>
+Ejercicios de comprensión lectora.
+</li>
+<li>Artículos: Proporcionan información sobre los diferentes aspectos de la comprensión lectora.</li>
+<li>Vídeos explicativos: Ofrecen consejos y estrategias para mejorar esta habilidad.</li>
+</ul>
+
+                  <div style="padding:0 50px; margin: 40px auto; ">
+                    <div class="col-md-2" style="float:left;"><h4><strong>35%</strong><br>completado</h4></div>
+                    <div class="progress col-md-10">
+                      <div class="progress-bar-animated bg-success" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            
+
+                <div style="margin: 40px auto;" class="trainer d-flex justify-content-between align-items-center">              
+                  <button style="margin:auto;" type="button" class="btn btn-success">Ver más</button>
+                </div>
+
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+     <!-- verde medio -->
+     <div class="bg_orange">
+      <h3 style="margin: 40px auto;" >Metodologías de estudio:</h3>
+      <p>Te enseña técnicas y estrategias de estudio eficaces. El curso está diseñado para ayudarte a mejorar tu rendimiento académico.
+      <ul>
+      <li> Organizar tu tiempo de estudio de forma efectiva.</li> 
+      <li>  Tomar notas de forma eficaz.</li>
+       <li> Preparar exámenes de forma eficaz..</li>
+      </ul>
+      
+      <div style="padding:0 50px; margin: 40px auto;">
+        <div class="col-md-2" style="float:left;"><h4><strong>50%</strong><br>completado</h4></div>
+        <div class="progress col-md-10">
+          <div class="progress-bar-animated bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+      
+      <div style="margin: 40px auto;" class="trainer d-flex justify-content-between align-items-center">                
+        <button style="margin:auto;" type="button" class="btn btn-success">Ver más</button>
+      </div>
+    </div>
+    
+  </section>
+
+
+{% endblock %}

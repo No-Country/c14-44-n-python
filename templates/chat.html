@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+    
+    {% for aula in lista %}
+    <section id="popular-courses" class="cursos mb-5" data-aos="fade-up">
+      <div class="container">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" style="margin: auto;width: initial;">
+          <div class="teacher-item">
+            <img src="{% static 'assets/img/course1.jpg' %}" class="img-fluid" alt="...">
+              <div class="teacher-content card-content">
+              <div class="bg_oscuro">
+                <h4 style="margin: 40px auto;">Bienvenido al aula de {{aula.nombre}}</h4>                
+                <h5>Profesor Elegido:</h5>
+                <p>{{aula.id_profesor}}</p>
+                <a href="{% url 'Chat_interno_aula' %}"><button style="margin:auto;" type="button" class="btn btn-success">Ir a sala de consulta</button></a>              
+                <h5>Fecha estipulada para la clase</h5>
+                <p>{{aula.fecha}}</p>
+                <h5>Material de estudio</h5>
+                <p>{{aula.material}}</p>
+                <div style="margin: 40px auto;" class="trainer d-flex justify-content-between align-items-center">
+                  <a href="{% url 'Chat_interno_aula' %}"><button style="margin:auto;" type="button" class="btn btn-success">Ir a sala de consulta</button></a>
+                </div>
+              
+              
+              </div>
+          </div>
+        </div>
+              
+      </div>
+    {% endfor %}
+  
+    
+{% endblock %}

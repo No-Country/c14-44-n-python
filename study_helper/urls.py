@@ -1,25 +1,26 @@
-"""
-URL configuration for study_helper project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
-from study_helper import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
+from home.views import Home, Acerca, Contacto
+from profesor.views import listar_profesores
+from materia.views import Materias,registrarCurso
+from aula_virtual.views import Chat, ChatInternoAula
+
+#from materia.views import views
+#from aula_virtual.views import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', Home, name="Home"),
+    path('about.html', Acerca, name="Acerca"),
+    path('trainers.html', listar_profesores, name="Profesor"),
+    path('courses.html', Materias, name="Cursos"),
+    path('chat.html', Chat, name="Chat"),
+    path('contact.html', Contacto, name="Contacto"),
+    path('registrarCurso/', registrarCurso, name="registrarCurso"),
+    path('chat_interno_aula.html/', ChatInternoAula, name="Chat_interno_aula"),
+    path('alumno/', include(('alumno.urls', 'alumno'), namespace='alumno')),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

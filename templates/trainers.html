@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="input-group mb-3">
+        
+        <div class="container">
+          <div class="search-container">
+              <input type="text" class="search-input" placeholder="Buscar un profesor o tema">
+              <button class="slider-button">
+                <img src="{% static 'assets/public/images/sliders.svg' %}" alt="Icono de busqueda">
+              </button>
+          </div>
+          <div class="filter-buttons">
+              <button class="filter-button">Destacados</button>
+              <button class="filter-button">Mejor Valorados</button>
+              <button class="filter-button">Mejor Precio</button>
+          </div>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <div class="title-container">
+      <h2 class="title">Profesores</h2>
+    </div>
+
+    <!-- ======= Trainers Section ======= -->
+    <section id="trainers" class="trainers">
+      <div class="container professor-cards mt-3" data-aos="fade-up" style="display:inline-flexbox;">
+        {% if profesores %}
+          {% for profesor in profesores %}
+            <div class="professor-card">
+              <img class="professor-image" src="{{ profesor.foto }}" alt="">
+              <div class="professor-info">
+                <div class="professor-details">
+                    <h3 class="professor-name">{{ profesor.first_name }} {{ profesor.last_name }}</h3>
+                    <p class="professor-rating">★ 4.8</p>
+                </div>
+                  <div class="professor-details">
+                    <p class="professor-subject">{{ profesor.materia }}</p>
+                    <p class="professor-price">{{ profesor.precio }}$</p>
+                  </div>
+                  <div class="social-icons">
+                    <!-- <a href="#" class="social-icon">
+                      <img src="{% static 'assets/public/images/share.svg' %}" alt="Icono de compartir">
+                    </a>
+                    <a href="#" class="social-icon">
+                      <img src="{% static 'assets/public/images/calendar-4-week.svg' %}" alt="Icono de calendario">
+                    </a>
+                    <a href="#" class="social-icon">
+                      <img src="{% static 'assets/public/images/component-2.svg' %}" alt="Icono de corazon">
+                    </a> -->
+                    <a href="#" class="social-icon">
+                      <img src="{% static 'assets/public/images/chevron-right.svg' %}" alt="Icono de flecha">
+                    </a>
+                </div>
+              </div>
+              <div class="professor-bio" style="display: none;">
+                <!-- Contenido de la biografía -->
+                <p>{{ profesor.biografia }}</p>
+                <button class="contact-button">Contactar</button>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        
+
+       
+      </div>
+      <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>  
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section><!-- End Trainers Section -->
+
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.professor-card').click(function() {
+          var professorCard = $(this);
+  
+          var professorName = professorCard.find('.professor-name').text();
+          var professorSubject = professorCard.find('.professor-subject').text();
+          var professorRating = professorCard.find('.professor-rating').text();
+          var professorPrice = professorCard.find('.professor-price').text();
+          var professorImage = professorCard.find('.professor-image').clone();
+          var professorBio = professorCard.find('.professor-bio').html();
+          
+          var bioPopup = $('#bioPopup');
+          var bioContent = bioPopup.find('.popup-content');
+          var bioPopupBio = bioContent.find('.professor-bio-popup');
+          
+          bioContent.empty();
+          bioContent.append('<span id="closeBioButton" class="close-button"> <img src="{% static 'assets/public/images/x.svg' %}" alt ="Icono de X"> </span>');
+          bioContent.append(professorImage);
+          bioContent.append('<div class="professor-infos">' + '<h3 class="professor-names">' + professorName + '</h3>' + '<p class="professor-ratings">' + professorRating + '</p>' + '</div>' + '<div class="professor-infos">' + '<p class="professor-subjects">' + professorSubject + '</p>' + '<p class="professor-prices">' + professorPrice + '</p>' + '</div>');
+          bioContent.append('<h2> Bio </h2>' + '<p>' + professorBio + '</p>');
+          bioContent.append('<div class="social-icons"> <a href="#" class="social-icon"> <img src="{% static 'assets/public/images/share.svg' %}" alt="Icono de compartir"> </a> <a href="#" class="social-icon"> <img src="{% static 'assets/public/images/calendar-4-week.svg' %}" alt="Icono de calendario"> </a> <a href="#" class="social-icon"> <img src="{% static 'assets/public/images/component-2.svg' %}" alt="Icono de corazon"> </a> </div>');
+          
+          bioPopup.fadeIn();
+        });
+  
+        $('#bioPopup').on('click', '#closeBioButton', function() {
+          $('#bioPopup').fadeOut();
+        });
+      });
+    </script>
+
+
+  {% endblock %}
